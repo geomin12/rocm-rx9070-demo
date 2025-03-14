@@ -11,7 +11,15 @@ tar -xzf therock-dist-gfx1201-20250305.tar.gz
 export PATH="$PWD/bin:$PATH"
 export LD_LIBRARY_PATH="$PWD/lib:$LD_LIBRARY_PATH"
 cd ..
+```
 
+## Virtual environment setup
+```shell
+python3 -m venv venv
+
+source venv/bin/activate
+
+pip install -r requirements.txt
 ```
 
 ## Pytorch / torchvision / torchaudio installation
@@ -27,8 +35,6 @@ If any application setup overrides this torch version, install it again.
 ## DeepSeek demo
 
 ```shell
-pip install gradio transformers
-
 python deepseek/demo.py
 ```
 
