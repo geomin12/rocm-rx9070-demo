@@ -1,0 +1,399 @@
+{
+  "last_node_id": 30,
+  "last_link_id": 59,
+  "nodes": [
+    {
+      "id": 5,
+      "type": "EmptyLatentImage",
+      "pos": [462, 398],
+      "size": [315, 106],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "localized_name": "LATENT",
+          "type": "LATENT",
+          "links": [23],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.26"
+      },
+      "widgets_values": [512, 512, 1]
+    },
+    {
+      "id": 22,
+      "type": "SDTurboScheduler",
+      "pos": [452, -248],
+      "size": [315, 82],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "localized_name": "model",
+          "type": "MODEL",
+          "link": 45,
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "localized_name": "SIGMAS",
+          "type": "SIGMAS",
+          "shape": 3,
+          "links": [49],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SDTurboScheduler",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.26"
+      },
+      "widgets_values": [1, 1]
+    },
+    {
+      "id": 27,
+      "type": "SaveImage",
+      "pos": [1843, -154],
+      "size": [466.7873840332031, 516.8289794921875],
+      "flags": {},
+      "order": 10,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "images",
+          "localized_name": "images",
+          "type": "IMAGE",
+          "link": 54
+        }
+      ],
+      "outputs": [],
+      "properties": { "cnr_id": "comfy-core", "ver": "0.3.26" },
+      "widgets_values": ["ComfyUI"]
+    },
+    {
+      "id": 25,
+      "type": "PreviewImage",
+      "pos": [1222.31689453125, 66.38001251220703],
+      "size": [501.69647216796875, 541.9198608398438],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "localized_name": "images",
+          "type": "IMAGE",
+          "link": 53
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.26"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 7,
+      "type": "CLIPTextEncode",
+      "pos": [352, 176],
+      "size": [425.27801513671875, 180.6060791015625],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        { "name": "clip", "localized_name": "clip", "type": "CLIP", "link": 39 }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "localized_name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [20],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.26"
+      },
+      "widgets_values": ["text, watermark"]
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": [351, -45],
+      "size": [422.84503173828125, 164.31304931640625],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "localized_name": "clip",
+          "type": "CLIP",
+          "link": 38,
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "localized_name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [19],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.26"
+      },
+      "widgets_values": [
+        "beautiful landscape scenery glass bottle with a galaxy inside cute fennec fox snow HDR sunset"
+      ]
+    },
+    {
+      "id": 20,
+      "type": "CheckpointLoaderSimple",
+      "pos": [-17, -70],
+      "size": [343.69647216796875, 98],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "localized_name": "MODEL",
+          "type": "MODEL",
+          "shape": 3,
+          "links": [41, 45],
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "localized_name": "CLIP",
+          "type": "CLIP",
+          "shape": 3,
+          "links": [38, 39],
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "localized_name": "VAE",
+          "type": "VAE",
+          "shape": 3,
+          "links": [],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.26"
+      },
+      "widgets_values": ["sd_xl_turbo_1.0_fp16.safetensors"]
+    },
+    {
+      "id": 14,
+      "type": "KSamplerSelect",
+      "pos": [452, -144],
+      "size": [315, 58],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "localized_name": "SAMPLER",
+          "type": "SAMPLER",
+          "shape": 3,
+          "links": [18]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSamplerSelect",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.26"
+      },
+      "widgets_values": ["euler_ancestral"]
+    },
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [1183, -66],
+      "size": [210, 46],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "localized_name": "samples",
+          "type": "LATENT",
+          "link": 28
+        },
+        {
+          "name": "vae",
+          "localized_name": "vae",
+          "type": "VAE",
+          "link": 59,
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "localized_name": "IMAGE",
+          "type": "IMAGE",
+          "links": [53, 54],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.26"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 30,
+      "type": "VAELoader",
+      "pos": [-14.496061325073242, 103.96058654785156],
+      "size": [315, 58],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        { "name": "VAE", "localized_name": "VAE", "type": "VAE", "links": [59] }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.26"
+      },
+      "widgets_values": ["vae.safetensors"]
+    },
+    {
+      "id": 13,
+      "type": "SamplerCustom",
+      "pos": [800, -66],
+      "size": [355.20001220703125, 230],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "localized_name": "model",
+          "type": "MODEL",
+          "link": 41,
+          "slot_index": 0
+        },
+        {
+          "name": "positive",
+          "localized_name": "positive",
+          "type": "CONDITIONING",
+          "link": 19,
+          "slot_index": 1
+        },
+        {
+          "name": "negative",
+          "localized_name": "negative",
+          "type": "CONDITIONING",
+          "link": 20
+        },
+        {
+          "name": "sampler",
+          "localized_name": "sampler",
+          "type": "SAMPLER",
+          "link": 18,
+          "slot_index": 3
+        },
+        {
+          "name": "sigmas",
+          "localized_name": "sigmas",
+          "type": "SIGMAS",
+          "link": 49,
+          "slot_index": 4
+        },
+        {
+          "name": "latent_image",
+          "localized_name": "latent_image",
+          "type": "LATENT",
+          "link": 23,
+          "slot_index": 5
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "localized_name": "output",
+          "type": "LATENT",
+          "shape": 3,
+          "links": [28],
+          "slot_index": 0
+        },
+        {
+          "name": "denoised_output",
+          "localized_name": "denoised_output",
+          "type": "LATENT",
+          "shape": 3,
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SamplerCustom",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.26"
+      },
+      "widgets_values": [true, 737199784230256, "randomize", 1]
+    }
+  ],
+  "links": [
+    [18, 14, 0, 13, 3, "SAMPLER"],
+    [19, 6, 0, 13, 1, "CONDITIONING"],
+    [20, 7, 0, 13, 2, "CONDITIONING"],
+    [23, 5, 0, 13, 5, "LATENT"],
+    [28, 13, 0, 8, 0, "LATENT"],
+    [38, 20, 1, 6, 0, "CLIP"],
+    [39, 20, 1, 7, 0, "CLIP"],
+    [41, 20, 0, 13, 0, "MODEL"],
+    [45, 20, 0, 22, 0, "MODEL"],
+    [49, 22, 0, 13, 4, "SIGMAS"],
+    [53, 8, 0, 25, 0, "IMAGE"],
+    [54, 8, 0, 27, 0, "IMAGE"],
+    [59, 30, 0, 8, 1, "VAE"]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Unmute (CTRL-M) if you want to save images.",
+      "bounding": [1808, -260, 536, 676],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": { "ds": { "scale": 1, "offset": [203, 324] } },
+  "version": 0.4
+}
